@@ -19,9 +19,8 @@ public class Test extends HttpServlet {
 		response.getWriter().print("Tere!");
 		
 		
-		
 		//https://github.com/rakukk/SuperTeam07_1.git
-		
+		//https://github.com/rakukk/SuperTeam07_1.git
 		
 		
 	}
