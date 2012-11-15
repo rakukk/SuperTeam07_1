@@ -18,6 +18,7 @@ public class Test extends HttpServlet {
 		
 		response.getWriter().print("Tere!");
 		
+		response.getWriter().print("Tere ise kah!");
 		
 	}
 
