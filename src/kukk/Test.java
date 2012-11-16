@@ -20,7 +20,8 @@ public class Test extends HttpServlet {
 		
 		
 		//https://github.com/rakukk/SuperTeam07_1.git
-		
+		//https://github.com/rakukk/SuperTeam07_1.git
+		//https://github.com/rakukk/SuperTeam07_1.git
 		
 		
 	}
