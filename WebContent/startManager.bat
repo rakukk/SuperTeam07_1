@@ -1,0 +1,1 @@
+java -classpath web-inf/lib/hsqldb.jar org.hsqldb.util.DatabaseManagerSwing

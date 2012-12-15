@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>SuperTeam07_1</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+  <display-name>>piirivalveAdminServlet</display-name>
   <servlet>
-    <description></description>
-    <display-name>Test</display-name>
-    <servlet-name>Test</servlet-name>
-    <servlet-class>kukk.Test</servlet-class>
+    <description>
+		</description>
+    <display-name>AdminServlet</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>SuperTeam07_1.AdminServlet</servlet-class>
+
+
+    <init-param>
+      <param-name>base</param-name>
+      <param-value>/SuperTeam07_1/admin</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>imageURL</param-name>
+      <param-value>/SuperTeam07_1/images/</param-value>
+    </init-param>
+
   </servlet>
   <servlet-mapping>
-    <servlet-name>Test</servlet-name>
-    <url-pattern>/Test</url-pattern>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/admin/*</url-pattern>
   </servlet-mapping>
 </web-app>
