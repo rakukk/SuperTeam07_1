@@ -6,7 +6,7 @@
 		</description>
     <display-name>AdminServlet</display-name>
     <servlet-name>AdminServlet</servlet-name>
-    <servlet-class>SuperTeam07_1.AdminServlet</servlet-class>
+    <servlet-class>piirivalve.AdminServlet</servlet-class>
 
 
     <init-param>

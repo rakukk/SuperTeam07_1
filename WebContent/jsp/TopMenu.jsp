@@ -9,6 +9,6 @@
     </div>
   <div class="logo pilt">
     <a class="link2" href="http://www.politsei.ee/et/">dyn teha ja css läks valeks
-      <img src="<%=imageURL %>/piirikotkas.jpg" alt="Piirikotkas" height="70" width="60" border="0"/></a>   
+      <img src="<%=imageURL %>piirikotkas.jpg" alt="Piirikotkas" height="70" width="60" border="0"/></a>   
     </div>
   </div>
