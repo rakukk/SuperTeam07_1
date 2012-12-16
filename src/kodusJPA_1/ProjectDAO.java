@@ -5,12 +5,12 @@ import javax.persistence.EntityManagerFactory;
 
 
 
-public class ProjectDAO {
+public class ProjectDAO extends GenericDAO {
 
 	//Olemi kirjutamine andmebaasi
-	public void insertProject(Project project, EntityManagerFactory emf) {
+	public void insertProject(Project project) {
 		
-       EntityManager em = emf.createEntityManager();
+       EntityManager em = createEntityManager();
         
        em.getTransaction().begin();
         
@@ -18,7 +18,7 @@ public class ProjectDAO {
         
         em.getTransaction().commit();
         
-        em.close();
+        closeEntityManager();
 	
 	}
 	

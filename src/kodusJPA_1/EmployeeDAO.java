@@ -21,68 +21,72 @@ import kodusJPA_1.Employee;
  * @author Raido
  *
  */
-public class EmployeeDAO {//extends GenericDAO {
+public class EmployeeDAO extends GenericDAO {
 
 	//Olemi kirjutamine andmebaasi
-	public void insertEmployee(Employee employee, EntityManagerFactory emf) {
+	public void insertEmployee(Employee employee) {
 		
-       EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
+       EntityManager em = createEntityManager();
         
-        em.persist(employee);
+       em.getTransaction().begin();
         
-        em.getTransaction().commit();
+       em.persist(employee);
         
-        em.close();
+       em.getTransaction().commit();
+        
+       closeEntityManager();
 		
 	}
 	
 	//Olemi merge-mine andmebaasi kui esimest korda on persist tehtud
-	public void mergeEmployee(Employee employee, EntityManagerFactory emf) {
+	public void mergeEmployee(Employee employee) {
 		
-        EntityManager em = emf.createEntityManager();
+		EntityManager em = createEntityManager();
         em.getTransaction().begin();
         
         em.merge(employee);
         
         em.getTransaction().commit();
         
-        em.close();
+        closeEntityManager();
 		
 	}
 	
 	
 	//Olemi laadimine
-	public Employee findEmployee (EntityManagerFactory emf){
-	EntityManager em = emf.createEntityManager();
+	public Employee findEmployee (Long id){
+		
+		EntityManager em = createEntityManager();
 	
-	//Employee e = em.find(Employee.class, 1L);
+	//	Employee e = em.find(Employee.class, 1L);
 	
-	Employee e = em.find(Employee.class, 1);
+		Employee e = em.find(Employee.class, id);
 	
-	em.close();
+		closeEntityManager();
 	
 	return e;
 	
 	}
 	
 	//Olemi muutmine
-    public void changeEmployee(EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public void changeEmployee(Long id, String uusNimi) {
+        
+    	EntityManager em = createEntityManager();
+    	
         EntityTransaction tx = em.getTransaction();
         tx.begin();
  
-        Employee e = em.find(Employee.class, 2);
-        if (e != null) e.setName("Jack");
+        Employee e = em.find(Employee.class, id);
+        if (e != null) e.setName(uusNimi);
  
         tx.commit();
-        em.close();
+        closeEntityManager();
     }
 	
 	
 	//Olemi kustutamine
-    public void deleteEmployee(int id, EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public void deleteEmployee(int id) {
+        EntityManager em = createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
  
@@ -90,12 +94,13 @@ public class EmployeeDAO {//extends GenericDAO {
         if (person != null) em.remove(person);
  
         tx.commit();
-        em.close();
+        
+        closeEntityManager();
     }
     
 	//P2ringud1
-    public void queryDeleteEmployee(EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public void queryDeleteEmployee() {
+        EntityManager em = createEntityManager();
         em.getTransaction().begin();
         
         Query query = em.createQuery("delete from Employee");
@@ -104,58 +109,63 @@ public class EmployeeDAO {//extends GenericDAO {
         em.getTransaction().commit();
         
         em.close();
+        closeEntityManager();
     }
  
     
 	//P2ringud2 - p2ringu parameetrid
-    public List<Employee> queryParameterEmployee(EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public List<Employee> queryParameterEmployee(int otsitavID) {
+        EntityManager em = createEntityManager();
         
         TypedQuery<Employee> query = em.createQuery(
         		
         		"select e from Employee e where e.id = :id",
         		Employee.class);
         
-        query.setParameter("id", 4);
+        query.setParameter("id", otsitavID);
         
         List <Employee> employees = query.getResultList();
         em.close();
+        closeEntityManager();
         
         return employees;
     }
     
 	//P2ringud3 - nimelised p2ringud
-    public List<Employee> namedQueryEmployee(EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public List<Employee> namedQueryEmployee() {
+        EntityManager em = createEntityManager();
         
         TypedQuery<Employee> namedQuery = em.createNamedQuery("Employee.findAll", Employee.class);
         		
         List <Employee> employees = namedQuery.getResultList();
         em.close();
+        closeEntityManager();
         
         return employees;
     }
     
 	//P2ringud4 - nimelised p2ringud eraldi xml
-    public List<Employee> namedQueryEmployee_1(EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public List<Employee> namedQueryEmployee_1() {
+        EntityManager em = createEntityManager();
         
         TypedQuery<Employee> namedQuery = em.createNamedQuery("Employee.findAll_1", Employee.class);
         		
         List <Employee> employees = namedQuery.getResultList();
         em.close();
-        
+        closeEntityManager();
         return employees;
     }
     
     //Tootaja departmenti kysimine
     
-    public Department getEmployeeDepartment(EntityManagerFactory emf) {
-        EntityManager em = emf.createEntityManager();
+    public Department getEmployeeDepartment(int otsitavID) {
         
-        Employee e = em.find(Employee.class, 3);
+    	EntityManager em = createEntityManager();
+        
+        Employee e = em.find(Employee.class, otsitavID);
         
         em.close();
+        closeEntityManager();
         
         return e.getDepartment();
     }

@@ -27,41 +27,16 @@ public class Launcher {
 	 * @throws ClassNotFoundException, SQLException 
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-				
-			String workingDir = System.getProperty("user.dir");
 		
-		 		//nii saab sal file hsqldb-sse lugeda
-				Connection connection = null;
-		 		try {
-		 		
-				 Class.forName("org.hsqldb.jdbcDriver");
-
-	                connection = DriverManager.getConnection(
-	                    "jdbc:hsqldb:hsql://localhost/test", "sa", "");
-	             
-	                ScriptRunner runner = new ScriptRunner(connection, true, false);
-	                
-					// kui tahan seda ka kuskil mujal kasutada peab olema web-content all need sql failid
-	                // C:\tomcat\webapps\piirivalve\WEB-INF\classes\piirivalve\model
-	                try {
-						runner.runScript(new BufferedReader(new FileReader("src\\piirivalve\\model\\piir.sql")));
-					} catch (IOException e) {
-						
-						e.printStackTrace();
-					}
-					
-		 		} finally {
-	                // Closing the connection
-	                if (connection != null) {
-	                    connection.close();
-	                }
-		 		
-		 		
-		 		
+		
+		//GenericDAO.looTabelid();
+		
 		
 		// SEE ON OLULINE ET OLEKS SIIN
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("KodusJPA_1");
-	
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("KodusJPA_1");
+		
+		
+	/*
 		try {
 			OtseHSQLDB.kirjutaDB();
 		} catch (ClassNotFoundException e1) {
@@ -71,8 +46,9 @@ public class Launcher {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		*/
 		
-		
+		/*
 		VaadeDAO vaadeDao = new VaadeDAO();
 		
 		Vaade vaade1 = new Vaade();
@@ -107,6 +83,8 @@ public class Launcher {
        List <Vaade> vaated = VaadeDAO.namedQueryVaade();
         
 		
+		*/
+		
 		DepartmentDAO departmentDao = new DepartmentDAO();
 		 
 		 	Department hullar = new Department();
@@ -117,7 +95,7 @@ public class Launcher {
 		 	
 	        // Sisestamine Department
 	        try {
-	            departmentDao.insertDepartment(hullar, emf);
+	            departmentDao.insertDepartment(hullar);
 	           
 	        } catch (Exception e) {
 	            System.err.println("Exception while saving departments! ");
@@ -128,7 +106,7 @@ public class Launcher {
 	        // Sisestamine Department 2
 	        try {
 	           
-	            departmentDao.insertDepartment(normull, emf);
+	            departmentDao.insertDepartment(normull);
 	        } catch (Exception e) {
 	            System.err.println("Exception while saving departments! ");
 	            System.err.println(e);
@@ -145,7 +123,7 @@ public class Launcher {
 	        
 	        // Sisestamine Project
 	        try {
-	            projectDao.insertProject(project1, emf);
+	            projectDao.insertProject(project1);
 	           
 	        } catch (Exception e) {
 	            System.err.println("Exception while saving departments! ");
@@ -173,7 +151,7 @@ public class Launcher {
 	        
 	        // Sisestamine 1
 	        try {
-	            employeeDao.insertEmployee(employee1, emf);
+	            employeeDao.insertEmployee(employee1);
 	        } catch (Exception e) {
 	            System.err.println("Exception while saving employee: " + employee1);
 	            System.err.println(e);
@@ -181,7 +159,7 @@ public class Launcher {
 	        }
 	        // Sisestamine 2
 	        try {
-	            employeeDao.insertEmployee(employee2, emf);
+	            employeeDao.insertEmployee(employee2);
 	        } catch (Exception e) {
 	            System.err.println("Exception while saving employee: " + employee2);
 	            System.err.println(e);
@@ -191,7 +169,10 @@ public class Launcher {
 	        
 	        // Olemi lugemine
 	        try {
-	            System.out.println("Mudru siia: " + employeeDao.findEmployee(emf));
+	        	
+	        	Long otsitavaID = 1L;
+	        	
+	            System.out.println("Mudru siia: " + employeeDao.findEmployee(otsitavaID));
 	        } catch (Exception e) {
 	            System.err.println("Exception findEmployee: ");
 	            System.err.println(e);
@@ -201,7 +182,12 @@ public class Launcher {
 	        // Olemi muutmine
 	        try {
 	            System.out.println("Olemi muutus!");
-	            employeeDao.changeEmployee(emf);
+	            
+	            Long otsitavaID = 2L;
+	            String uusNimi = "JAAK";
+	            
+	            
+	            employeeDao.changeEmployee(otsitavaID, uusNimi);
 	        } catch (Exception e) {
 	            System.err.println("Exception changeEmployee: ");
 	            System.err.println(e);
@@ -211,7 +197,10 @@ public class Launcher {
 	        // Olemi kustutamine
 	        try {
 	            System.out.println("Olemi kustutamine!");
-	            employeeDao.deleteEmployee(1,emf);
+	            
+	            int kustutatavaID = 1;
+	            
+	            employeeDao.deleteEmployee(kustutatavaID);
 	        } catch (Exception e) {
 	            System.err.println("Exception deleteEmployee: ");
 	            System.err.println(e);
@@ -221,7 +210,7 @@ public class Launcher {
 	        // Olemi kustutamine p2ringuga
 	        try {
 	            System.out.println("Olemi kustutaminep2ringuga!");
-	            employeeDao.queryDeleteEmployee(emf);
+	            employeeDao.queryDeleteEmployee();
 	        } catch (Exception e) {
 	            System.err.println("Exception queryDeleteEmployee: ");
 	            System.err.println(e);
@@ -232,11 +221,13 @@ public class Launcher {
 	        try {
 	        	
 	        	employee1.setSalary(111111);
-	        	employeeDao.mergeEmployee(employee1,emf);
+	        	employeeDao.mergeEmployee(employee1);
 	        	
 	        	System.out.println("Olemi p2ringu parameetrid !");
 	            
-	            List <Employee> employees = employeeDao.queryParameterEmployee(emf);
+	        	int otsitavaID = 2;
+	        	
+	            List <Employee> employees = employeeDao.queryParameterEmployee(otsitavaID);
 	            
 	            System.out.print("Siin on p2ring2 return " + employees);
 	            
@@ -252,7 +243,7 @@ public class Launcher {
 	        	
 	        	System.out.println("P2ring3 - olemi nimelised p2ringud !");
 	            
-	            List <Employee> employees = employeeDao.namedQueryEmployee(emf);
+	            List <Employee> employees = employeeDao.namedQueryEmployee();
 	            
 	            System.out.print("Siin on P2ringud3 return: " + employees);
 	        } catch (Exception e) {
@@ -267,13 +258,13 @@ public class Launcher {
 	        	System.out.println("PRINDI TEST!");
 	        	
 	        	//Miski p2rast see enam l6puks ei kajastu baasis???
-	        	employeeDao.mergeEmployee(employee2,emf);
+	        	employeeDao.mergeEmployee(employee2);
 	        	//
 	        	System.out.println("KAS SELLE PRINDIB?");
 	        	
 	        	System.out.println("Olemi nimelised p2ringud eraldi xml!");
 	            
-	            List <Employee> employees = employeeDao.namedQueryEmployee_1(emf);
+	            List <Employee> employees = employeeDao.namedQueryEmployee_1();
 	            
 	            System.out.print("Siin on P2ringud4 return: " + employees);
 	        } catch (Exception e) {
@@ -288,8 +279,11 @@ public class Launcher {
 	        		        	
 	        	System.out.println("Tootaja departmenti leidmine baasist!");
 	            
+	        	int otsitavaID = 3;
+	        	
+	        	
 	            Department department = new Department();
-	            department = employeeDao.getEmployeeDepartment(emf);
+	            department = employeeDao.getEmployeeDepartment(otsitavaID);
 	            
 	            System.out.print("Siin isik Id=3 tootab osakonnas: " + department.getName());
 	        } catch (Exception e) {
@@ -298,9 +292,12 @@ public class Launcher {
 	            e.printStackTrace();
 	        }
 	        
-	        	        
+	        
+	        // oluline punkt!!!!
+	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KodusJPA_1");        
 	        try {
 		        EntityManager em = emf.createEntityManager();
+		        
 		        Project project0 = em.find(Project.class, 1);
 
 		        // See sumber ongi ID mille baasist leian
@@ -311,7 +308,7 @@ public class Launcher {
 		        
 		        
 		        // Kirjutame ikka baasi kah!
-		        employeeDao.mergeEmployee(employee2, emf);
+		        employeeDao.mergeEmployee(employee2);
 		        
 	        } catch (Exception e) {
 	            System.err.println("Exception MANYTOMANY: ");
@@ -320,12 +317,12 @@ public class Launcher {
 	        }
 
 	        
-	        
-	        //GenericDAO.closeEntityManager();
+	        //emf.close();
+	        GenericDAO.closeEntityManager();
 	        
 	}
 
-	}
+	
 	
 	
 }
