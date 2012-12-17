@@ -70,6 +70,16 @@ public abstract class GenericDAO {
   	  
   		}  
     }
+    
+    /*
+     * See on persistence xml vahe kas serveripõhine või file põhine! 
+     * 
+    		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/test"/>
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>		
+		
+	*/
+    
 	
 	
 }
