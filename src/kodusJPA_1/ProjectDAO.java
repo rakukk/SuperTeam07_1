@@ -1,7 +1,7 @@
 package kodusJPA_1;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+
 
 
 
@@ -18,7 +18,7 @@ public class ProjectDAO extends GenericDAO {
         
         em.getTransaction().commit();
         
-        closeEntityManager();
+        em.close();
 	
 	}
 	

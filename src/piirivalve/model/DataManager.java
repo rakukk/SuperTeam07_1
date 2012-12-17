@@ -1,18 +1,11 @@
 package piirivalve.model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
 import java.util.Hashtable;
 import java.util.List;
 
-import javax.persistence.NamedQuery;
 
-import kodusJPA_1.ScriptRunner;
-//import piirivalve.beans.Category;
+
 import kodusJPA_1.Vaade;
 
 public class DataManager {

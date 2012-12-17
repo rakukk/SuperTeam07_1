@@ -3,7 +3,7 @@ package kodusJPA_1;
 
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+
 
 import kodusJPA_1.Department;
 
@@ -11,7 +11,7 @@ import kodusJPA_1.Department;
 
 public class DepartmentDAO extends GenericDAO{
 
-	//Olemi kirjutamine andmebaasi
+	//Olemi kirjutamine andmebaasi SuperTeam07_1
 	public void insertDepartment(Department department) {
 		
 		EntityManager em = createEntityManager();
@@ -21,8 +21,18 @@ public class DepartmentDAO extends GenericDAO{
         
         em.getTransaction().commit();
         
-        closeEntityManager();
+        em.close();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

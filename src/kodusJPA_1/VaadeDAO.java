@@ -1,22 +1,17 @@
 package kodusJPA_1;
 
-import java.util.Hashtable;
-import java.util.Iterator;
+
 import java.util.List;
 
 import javax.persistence.*;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
-public class VaadeDAO {
+public class VaadeDAO extends GenericDAO {
 
 	
 	//Olemi kirjutamine andmebaasi
-	public void insertVaade(Vaade vaade, EntityManagerFactory emf) {
+	public void insertVaade(Vaade vaade) {
 		
-       EntityManager em = emf.createEntityManager();
+       EntityManager em = createEntityManager();
         
        em.getTransaction().begin();
         
@@ -43,7 +38,7 @@ public class VaadeDAO {
         List <Vaade> vaated= namedQuery.getResultList();
         em.close();
         
-        emf.close();
+        
         
         return vaated;
     }

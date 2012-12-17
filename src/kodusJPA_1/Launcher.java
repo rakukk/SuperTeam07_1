@@ -1,12 +1,7 @@
 package kodusJPA_1;
 
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -48,7 +43,7 @@ public class Launcher {
 		}
 		*/
 		
-		/*
+		
 		VaadeDAO vaadeDao = new VaadeDAO();
 		
 		Vaade vaade1 = new Vaade();
@@ -56,7 +51,7 @@ public class Launcher {
 		
 		 // Sisestamine Vaade
         try {
-            vaadeDao.insertVaade(vaade1, emf);
+            vaadeDao.insertVaade(vaade1);
            
         } catch (Exception e) {
             System.err.println("Exception while saving departments! ");
@@ -70,7 +65,7 @@ public class Launcher {
 		
 		 // Sisestamine Vaade
         try {
-            vaadeDao.insertVaade(vaade2, emf);
+            vaadeDao.insertVaade(vaade2);
            
         } catch (Exception e) {
             System.err.println("Exception while saving departments! ");
@@ -80,10 +75,10 @@ public class Launcher {
         
         //VAATE kontroll
                
-       List <Vaade> vaated = VaadeDAO.namedQueryVaade();
+       //List <Vaade> vaated = VaadeDAO.namedQueryVaade();
         
 		
-		*/
+		
 		
 		DepartmentDAO departmentDao = new DepartmentDAO();
 		 
@@ -170,7 +165,7 @@ public class Launcher {
 	        // Olemi lugemine
 	        try {
 	        	
-	        	Long otsitavaID = 1L;
+	        	int otsitavaID = 1;
 	        	
 	            System.out.println("Mudru siia: " + employeeDao.findEmployee(otsitavaID));
 	        } catch (Exception e) {
@@ -183,7 +178,7 @@ public class Launcher {
 	        try {
 	            System.out.println("Olemi muutus!");
 	            
-	            Long otsitavaID = 2L;
+	            int otsitavaID = 2;
 	            String uusNimi = "JAAK";
 	            
 	            
@@ -293,22 +288,27 @@ public class Launcher {
 	        }
 	        
 	        
-	        // oluline punkt!!!!
-	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KodusJPA_1");        
+	        // Need tuleks siit ka veel DAO-desse kirjutada ja topelt factory nõnda kaotada.
+	        
+	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TEST");        
 	        try {
 		        EntityManager em = emf.createEntityManager();
 		        
 		        Project project0 = em.find(Project.class, 1);
 
-		        // See sumber ongi ID mille baasist leian
-		        employee2 = em.find(Employee.class, 4);
-		        project0.getEmployees().add(employee2);
+		        // See number ongi ID mille baasist leian
 		        
-		        employee2.getProjects().add(project0);
+		        employee2 = em.find(Employee.class, 4);
+		        
+		        project0.getEmployees().add(employee2);
+		        //employee2.getProjects().add(project0);
 		        
 		        
 		        // Kirjutame ikka baasi kah!
+		        
 		        employeeDao.mergeEmployee(employee2);
+		        em.close();
+		        emf.close();
 		        
 	        } catch (Exception e) {
 	            System.err.println("Exception MANYTOMANY: ");
@@ -317,8 +317,8 @@ public class Launcher {
 	        }
 
 	        
-	        //emf.close();
-	        GenericDAO.closeEntityManager();
+	        
+	        GenericDAO.closeEntityManagerFactory();
 	        
 	}
 

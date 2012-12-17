@@ -6,7 +6,7 @@ package kodusJPA_1;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -34,7 +34,7 @@ public class EmployeeDAO extends GenericDAO {
         
        em.getTransaction().commit();
         
-       closeEntityManager();
+       em.close();
 		
 	}
 	
@@ -48,13 +48,13 @@ public class EmployeeDAO extends GenericDAO {
         
         em.getTransaction().commit();
         
-        closeEntityManager();
+        em.close();
 		
 	}
 	
 	
 	//Olemi laadimine
-	public Employee findEmployee (Long id){
+	public Employee findEmployee (int id){
 		
 		EntityManager em = createEntityManager();
 	
@@ -62,14 +62,14 @@ public class EmployeeDAO extends GenericDAO {
 	
 		Employee e = em.find(Employee.class, id);
 	
-		closeEntityManager();
+		em.close();
 	
 	return e;
 	
 	}
 	
 	//Olemi muutmine
-    public void changeEmployee(Long id, String uusNimi) {
+    public void changeEmployee(int id, String uusNimi) {
         
     	EntityManager em = createEntityManager();
     	
@@ -80,7 +80,7 @@ public class EmployeeDAO extends GenericDAO {
         if (e != null) e.setName(uusNimi);
  
         tx.commit();
-        closeEntityManager();
+        em.close();
     }
 	
 	
@@ -95,7 +95,7 @@ public class EmployeeDAO extends GenericDAO {
  
         tx.commit();
         
-        closeEntityManager();
+        em.close();
     }
     
 	//P2ringud1
@@ -108,8 +108,8 @@ public class EmployeeDAO extends GenericDAO {
         
         em.getTransaction().commit();
         
+        
         em.close();
-        closeEntityManager();
     }
  
     
@@ -126,7 +126,7 @@ public class EmployeeDAO extends GenericDAO {
         
         List <Employee> employees = query.getResultList();
         em.close();
-        closeEntityManager();
+        
         
         return employees;
     }
@@ -139,7 +139,7 @@ public class EmployeeDAO extends GenericDAO {
         		
         List <Employee> employees = namedQuery.getResultList();
         em.close();
-        closeEntityManager();
+        
         
         return employees;
     }
@@ -152,7 +152,7 @@ public class EmployeeDAO extends GenericDAO {
         		
         List <Employee> employees = namedQuery.getResultList();
         em.close();
-        closeEntityManager();
+       
         return employees;
     }
     
@@ -165,7 +165,7 @@ public class EmployeeDAO extends GenericDAO {
         Employee e = em.find(Employee.class, otsitavID);
         
         em.close();
-        closeEntityManager();
+        
         
         return e.getDepartment();
     }
