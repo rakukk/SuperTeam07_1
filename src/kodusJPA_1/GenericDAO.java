@@ -42,7 +42,7 @@ public abstract class GenericDAO {
     
     public static void looTabelid () throws ClassNotFoundException, SQLException {
   	  
-  		//nii saab sal file hsqldb-sse lugeda
+  		//nii saab sql file hsqldb-sse lugeda
   		Connection connection = null;
   		try {
   		
@@ -54,7 +54,7 @@ public abstract class GenericDAO {
          
             ScriptRunner runner = new ScriptRunner(connection, true, false);
             
-  			// kui tahan seda ka kuskil mujal kasutada peab olema web-content all need sql failid
+  			// kui tahan seda ka kuskil mujal kasutada peab olema web-content all need sql failid ilmselt
             // C:\tomcat\webapps\piirivalve\WEB-INF\classes\piirivalve\model
             try {
   				runner.runScript(new BufferedReader(new FileReader("src\\SuperTeam07_1\\model\\piir.sql")));
