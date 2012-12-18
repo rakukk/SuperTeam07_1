@@ -23,7 +23,7 @@ public class Launcher {
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
-		
+		// Sellega saab luua SQL failist lähtuvalt kõik tabelid!
 		//GenericDAO.looTabelid();
 		
 		
