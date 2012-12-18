@@ -28,6 +28,7 @@ public class Launcher {
 		
 		
 		// SEE ON OLULINE ET OLEKS SIIN
+		// Enam väga ei ole ja läheb kustutamisele
 		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("KodusJPA_1");
 		
 		
