@@ -4,9 +4,10 @@ package piirivalve.model;
 import java.util.Hashtable;
 import java.util.List;
 
+import piirivalve.beans.Vaade;
 
 
-import kodusJPA_1.Vaade;
+
 
 public class DataManager {
   
@@ -46,7 +47,7 @@ public class DataManager {
     
 	  //meetodi namedQueryVaade kaudu ja see on Vaade.javas kirjas nii @NamedQuery (name="Vaade.findAll", query="SELECT e FROM Vaade e")
 	  // tegelik päring loomulikult VaadeDAO all toimub
-	  List <Vaade> vaated = kodusJPA_1.VaadeDAO.namedQueryVaade(); 
+	  List <Vaade> vaated = piirivalve.DAO.VaadeDAO.namedQueryVaade(); 
 	  
 	  
 	  Hashtable <Integer, String> myHashTable = new Hashtable<Integer, String>();

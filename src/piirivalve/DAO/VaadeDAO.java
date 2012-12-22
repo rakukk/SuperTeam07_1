@@ -1,9 +1,11 @@
-package kodusJPA_1;
+package piirivalve.DAO;
 
 
 import java.util.List;
 
 import javax.persistence.*;
+
+import piirivalve.beans.Vaade;
 
 public class VaadeDAO extends GenericDAO {
 

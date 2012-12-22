@@ -9,11 +9,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import kodusJPA_1.GenericDAO;
+import piirivalve.beans.Vaade;
+
+import piirivalve.DAO.GenericDAO;
 import kodusJPA_1.EmployeeDAO;
-import kodusJPA_1.VaadeDAO;
+
 import kodusJPA_1.Employee;
 import kodusJPA_1.Project;
+
+
+import piirivalve.DAO.VaadeDAO;
+
 
 public class Launcher {
 
@@ -283,7 +289,7 @@ public class Launcher {
 	            
 	            System.out.print("Siin isik Id=3 tootab osakonnas: " + department.getName());
 	        } catch (Exception e) {
-	            System.err.println("Exception millises osakonnas totoaja tootab: ");
+	            System.err.println("Exception millises osakonnas töötaja töötab: ");
 	            System.err.println(e);
 	            e.printStackTrace();
 	        }

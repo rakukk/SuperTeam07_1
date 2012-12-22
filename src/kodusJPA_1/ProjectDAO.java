@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 
 
 
-public class ProjectDAO extends GenericDAO {
+public class ProjectDAO extends piirivalve.DAO.GenericDAO {
 
 	//Olemi kirjutamine andmebaasi
 	public void insertProject(Project project) {

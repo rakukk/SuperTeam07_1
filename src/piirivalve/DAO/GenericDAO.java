@@ -1,4 +1,4 @@
-package kodusJPA_1;
+package piirivalve.DAO;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import piirivalve.model.ScriptRunner;
 
 
 

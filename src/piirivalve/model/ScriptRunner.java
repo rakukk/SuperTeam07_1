@@ -1,4 +1,4 @@
-package kodusJPA_1;
+package piirivalve.model;
 
 /*
  * Slightly modified version of the com.ibatis.common.jdbc.ScriptRunner class

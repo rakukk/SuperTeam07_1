@@ -15,7 +15,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 		<class>kodusJPA_1.Department</class>
 		<class>kodusJPA_1.Employee</class>
 		<class>kodusJPA_1.Project</class>
-		<class>kodusJPA_1.Vaade</class>
+		<class>piirivalve.beans.Vaade</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:${user.home}\i377\Team07d\db;shutdown=true"/>
@@ -46,7 +46,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 		<class>kodusJPA_1.Department</class>
 		<class>kodusJPA_1.Employee</class>
 		<class>kodusJPA_1.Project</class>
-		<class>kodusJPA_1.Vaade</class>
+		<class>piirivalve.beans.Vaade</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:${user.home}\i377\Team07d\db;shutdown=true"/>

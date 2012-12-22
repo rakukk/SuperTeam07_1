@@ -1,4 +1,4 @@
-package kodusJPA_1;
+package piirivalve.beans;
 
 
 

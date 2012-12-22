@@ -21,7 +21,7 @@ import kodusJPA_1.Employee;
  * @author Raido
  *
  */
-public class EmployeeDAO extends GenericDAO {
+public class EmployeeDAO extends piirivalve.DAO.GenericDAO {
 
 	//Olemi kirjutamine andmebaasi
 	public void insertEmployee(Employee employee) {
