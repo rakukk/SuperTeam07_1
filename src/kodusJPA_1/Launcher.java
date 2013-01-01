@@ -69,6 +69,7 @@ public class Launcher {
         
 		Vaade vaade2 = new Vaade();
 		vaade2.setName("Adminyksuse vaatamine");
+		System.out.println(vaade2.getJspName());
 		
 		 // Sisestamine Vaade
         try {

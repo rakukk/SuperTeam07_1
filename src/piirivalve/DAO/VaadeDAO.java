@@ -29,9 +29,9 @@ public class VaadeDAO extends GenericDAO {
     public static List<Vaade> namedQueryVaade() {
     	
     	// SEE ON OLULINE ET OLEKS SIIN ja selle lahtikirjutus on persistence.xml-is
-    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("TEST");
+    	//EntityManagerFactory emf = Persistence.createEntityManagerFactory("TEST");
     	
-    	EntityManager em = emf.createEntityManager();
+    	EntityManager em = createEntityManager();
         
     	
     	// Jälle named query!

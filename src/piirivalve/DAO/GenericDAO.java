@@ -26,8 +26,8 @@ public abstract class GenericDAO {
 
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("KodusJPA_1");
 	
-    
-	public EntityManager createEntityManager() {
+    // Siia muutsin just static
+	public static EntityManager createEntityManager() {
     	
         return emf.createEntityManager();
         

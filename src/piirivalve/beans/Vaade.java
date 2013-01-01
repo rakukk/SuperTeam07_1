@@ -20,6 +20,22 @@ public class Vaade {
 		private int id;
 		  
 		private String name;
+		private String jspName;
+		
+		
+		public String getJspName() {
+			return jspName;
+		}
+
+
+
+
+		private void setJspName(String jspName) {
+			this.jspName = jspName;
+		}
+
+
+		
 
 		
 		
@@ -47,6 +63,12 @@ public class Vaade {
 
 		public void setName(String name) {
 			this.name = name;
+			
+		setJspName(name.replace(" ","_"));
+		
+		
+		
+			
 		}
 
 

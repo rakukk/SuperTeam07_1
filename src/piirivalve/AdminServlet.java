@@ -60,16 +60,17 @@ public class AdminServlet extends javax.servlet.http.HttpServlet
     // Peab hoolikalt mõtlema, et kas selline lahend on üldse sobiv kui tahame peale actionit toimuva suunamise
     // pealt hakata andmetega manipuleerima
     
+    
     String action = request.getParameter("action");
     if (action != null) {
       if (action.equals("report"))
         url = base + "AdminAlluvusREP.jsp";
       else if (action.equals("liik"))
         url = base + "AdminLiik.jsp";
-      else if (action.equals("puu"))
+      else if (action.equals("PUU"))
         url = base + "AdminPuu.jsp";
       
-      else if (action.equals("yksus"))
+      else if (action.equals("Adminyksuse_vaatamine"))
           url = base + "AdminYksus.jsp";
       
     //action.matches("(admin|(add|update|delete)Item)")) - nii saab ühe actioniga erinevaid parameetreid katta

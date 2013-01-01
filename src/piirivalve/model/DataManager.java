@@ -1,7 +1,7 @@
 package piirivalve.model;
 
 
-import java.util.Hashtable;
+
 import java.util.List;
 
 import piirivalve.beans.Vaade;
@@ -43,13 +43,13 @@ public class DataManager {
   //---------- Vaatega tegutsmine
  
   // Siin on kirjas, et võtaks VAADE tabelist kogu infi ja viskaks hashtable ümber
-  public Hashtable<Integer, String> getCategories() {
-    
+  //public Hashtable<Integer, String> getCategories() {
+	  public List <Vaade> getCategories() {
 	  //meetodi namedQueryVaade kaudu ja see on Vaade.javas kirjas nii @NamedQuery (name="Vaade.findAll", query="SELECT e FROM Vaade e")
 	  // tegelik päring loomulikult VaadeDAO all toimub
 	  List <Vaade> vaated = piirivalve.DAO.VaadeDAO.namedQueryVaade(); 
 	  
-	  
+	  /*
 	  Hashtable <Integer, String> myHashTable = new Hashtable<Integer, String>();
 	    
   	  for (int i = 0; i<vaated.size(); i++) {
@@ -59,6 +59,9 @@ public class DataManager {
   	  }
 	 
 	  return myHashTable;
+	  */
+	  
+	return vaated;  
     }
     
   }
