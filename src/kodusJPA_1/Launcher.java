@@ -81,6 +81,19 @@ public class Launcher {
             e.printStackTrace();
         }
         
+        Vaade vaade3 = new Vaade();
+        vaade3.setName("Adminyksuse liik");
+        
+        try {
+            vaadeDao.insertVaade(vaade3);
+           
+        } catch (Exception e) {
+            System.err.println("Exception while saving departments! ");
+            System.err.println(e);
+            e.printStackTrace();
+        }
+        
+        
         //VAATE kontroll
                
        //List <Vaade> vaated = VaadeDAO.namedQueryVaade();

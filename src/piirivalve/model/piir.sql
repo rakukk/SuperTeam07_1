@@ -1,5 +1,5 @@
 CREATE TABLE RIIGI_ADMIN_YKSUSE_LIIK (
-       riigi_admin_yksuse_lik_id INTEGER,
+       riigi_admin_yksuse_liik_id INTEGER,
        avaja                VARCHAR(32) NOT NULL,
        avatud               DATE NOT NULL,
        muutja               VARCHAR(32) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE RIIGI_ADMIN_YKSUSE_LIIK (
        kommentaar           LONGVARCHAR,
        alates               DATE NOT NULL,
        kuni                 DATE NOT NULL,
-       PRIMARY KEY (riigi_admin_yksuse_lik_id)
+       PRIMARY KEY (riigi_admin_yksuse_liik_id)
 );
 
 

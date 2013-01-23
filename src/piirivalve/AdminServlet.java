@@ -65,19 +65,36 @@ public class AdminServlet extends javax.servlet.http.HttpServlet
     if (action != null) {
       if (action.equals("report"))
         url = base + "AdminAlluvusREP.jsp";
-      else if (action.equals("liik"))
-        url = base + "AdminLiik.jsp";
+      else if (action.equals("Adminyksuse_liik"))
+        url = base + "Adminyksuse_liik.jsp";
       else if (action.equals("PUU"))
         url = base + "AdminPuu.jsp";
       
       else if (action.equals("Adminyksuse_vaatamine"))
           url = base + "AdminYksus.jsp";
+
+      
       
     //action.matches("(admin|(add|update|delete)Item)")) - nii saab ühe actioniga erinevaid parameetreid katta
+     /*
       else if (action.matches("(admin|(add|update|delete)Item)"))   	  
         url = base + "admin.jsp";
-
+*/
+      
       }
+    
+    
+    String action2 = request.getParameter("fname");
+    if (action2 != null) {
+    
+    	if (action2.contains("tuut")){
+            url = base + "reqlist.jsp";
+    }
+    
+    	url = base + "saveV1.jsp";
+    	
+    }
+    
     RequestDispatcher requestDispatcher =
       getServletContext().getRequestDispatcher(url);
     requestDispatcher.forward(request, response);

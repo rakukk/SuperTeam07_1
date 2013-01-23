@@ -7,6 +7,7 @@
 
 <% String base = (String)application.getAttribute("base"); %>
 <% String test = pageContext.getServletConfig().getInitParameter("testParam"); %>
+
 <jsp:useBean id="dataManager" scope="application"
   class="piirivalve.model.DataManager"/>
   

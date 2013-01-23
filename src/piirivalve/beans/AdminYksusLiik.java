@@ -35,12 +35,11 @@ public class AdminYksusLiik {
 	
 	@Id 
 	@GeneratedValue //(strategy = GenerationType.TABLE)
-	private int riigi_admin_yksuse_lik_id;
+	private int riigi_admin_yksuse_liik_id;
 	
 	private String kood;
 	private String nimetus;
-	
-	
+		
 	private String avaja;
 	private Date avatud;
 	
@@ -64,139 +63,15 @@ public class AdminYksusLiik {
 	
 	
 	
-	public String getKood() {
-		return kood;
-	}
-
-
-
-	public void setKood(String kood) {
-		this.kood = kood;
-	}
-
-
-
-	public String getNimetus() {
-		return nimetus;
-	}
-
-
-
-
-	public void setNimetus(String nimetus) {
-		this.nimetus = nimetus;
-	}
-
-
-
-	public String getAvaja() {
-		return avaja;
-	}
-
-
-
-	public void setAvaja(String avaja) {
-		this.avaja = avaja;
-	}
-
-
-
-
-	public String getSulgeja() {
-		return sulgeja;
-	}
-
-
-
-	public void setSulgeja(String sulgeja) {
-		this.sulgeja = sulgeja;
-	}
-
-
-
-	public String getMuutja() {
-		return muutja;
-	}
-
-
-
-
-	public void setMuutja(String muutja) {
-		this.muutja = muutja;
-	}
-
-
-
-	public Date getMuudetud() {
-		return muudetud;
-	}
-
-
-
-
-	public void setMuudetud(Date muudetud) {
-		this.muudetud = muudetud;
-	}
-
-
-
-
-	public String getKommentaar() {
-		return kommentaar;
-	}
-
-
-
-
-	public void setKommentaar(String kommentaar) {
-		this.kommentaar = kommentaar;
-	}
-
-
-
-
-	public Date getAlates() {
-		return alates;
-	}
-
-
-
-
-
-	public void setAlates(Date alates) {
-		this.alates = alates;
-	}
-
-
-
-
-	public Date getKuni() {
-		return kuni;
-	}
-
-
-
-
-	public void setKuni(Date kuni) {
-		this.kuni = kuni;
-	}
-
-
-
-
-
-
 	// GETTERS & SETTERS
 	public int getId() {
-		return riigi_admin_yksuse_lik_id;
+		return riigi_admin_yksuse_liik_id;
 	}
 
 
 	public void setId(int id) {
-		this.riigi_admin_yksuse_lik_id = id;
+		this.riigi_admin_yksuse_liik_id = id;
 	}
-
-
 
 
 	public Date getAvatud() {
@@ -219,9 +94,93 @@ public class AdminYksusLiik {
 	}
 
 
+	public String getKood() {
+		return kood;
+	}
 
-		
+
+	public void setKood(String kood) {
+		this.kood = kood;
+	}
+
+
+	public String getNimetus() {
+		return nimetus;
+	}
+
+
+	public void setNimetus(String nimetus) {
+		this.nimetus = nimetus;
+	}
+
+
+	public String getAvaja() {
+		return avaja;
+	}
+
+
+	public void setAvaja(String avaja) {
+		this.avaja = avaja;
+	}
+
+
+	public String getSulgeja() {
+		return sulgeja;
+	}
+
+	public void setSulgeja(String sulgeja) {
+		this.sulgeja = sulgeja;
+	}
+
 	
+	public String getMuutja() {
+		return muutja;
+	}
+
 	
+	public void setMuutja(String muutja) {
+		this.muutja = muutja;
+	}
+
+
+	public Date getMuudetud() {
+		return muudetud;
+	}
+
+
+	public void setMuudetud(Date muudetud) {
+		this.muudetud = muudetud;
+	}
+
+
+	public String getKommentaar() {
+		return kommentaar;
+	}
+
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
+	}
+
+
+	public Date getAlates() {
+		return alates;
+	}
+
+
+	public void setAlates(Date alates) {
+		this.alates = alates;
+	}
+
+
+	public Date getKuni() {
+		return kuni;
+	}
+
+
+	public void setKuni(Date kuni) {
+		this.kuni = kuni;
+	}
+
 
 }
